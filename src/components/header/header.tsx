@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { routes } from '../../common/constants'
 import { Logo } from '../icons'
-import styles from './style.module.css'
+import styles from './header.module.css'
 
 const Header = () => {
   const linkClass = ({ isActive }: { isActive: boolean }) =>

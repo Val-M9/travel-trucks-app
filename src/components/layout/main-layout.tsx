@@ -1,12 +1,11 @@
 import type { ReactNode } from 'react'
-import Header from '../header/header'
-import styles from './styles.module.css'
+import { Header } from '../'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Header />
-      <main className={styles.layout}>{children}</main>
+      <main>{children}</main>
     </>
   )
 }
