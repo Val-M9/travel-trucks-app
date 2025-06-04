@@ -5,17 +5,16 @@ const Button = ({
   onClick,
   variant = 'filled',
   type = 'button',
-  size = 'lg',
   children,
+  style = '',
   ...props
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
       data-variant={variant}
-      data-size={size}
       type={type}
-      className={styles.btn}
+      className={`${styles.btn} ${style}`}
       {...props}>
       {children}
     </button>
