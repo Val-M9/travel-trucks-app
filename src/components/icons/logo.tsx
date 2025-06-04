@@ -1,6 +1,6 @@
 import type { IconProps } from '../../common/types'
 
-const Logo = ({ className, width = 136, height = 16 }: IconProps) => {
+const IconLogo = ({ className, width = 136, height = 16 }: IconProps) => {
   return (
     <svg
       className={className}
@@ -58,4 +58,4 @@ const Logo = ({ className, width = 136, height = 16 }: IconProps) => {
   )
 }
 
-export default Logo
+export default IconLogo

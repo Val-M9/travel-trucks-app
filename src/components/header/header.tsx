@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { routes } from '../../common/constants'
-import { Logo } from '../icons'
+import { IconLogo } from '../icons'
 import styles from './header.module.css'
 
 const Header = () => {
@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <NavLink to={routes.HOME}>
-        <Logo className={styles.logo} />
+        <IconLogo className={styles.logo} />
       </NavLink>
       <nav className={styles.nav}>
         <NavLink to={routes.HOME} className={linkClass}>
