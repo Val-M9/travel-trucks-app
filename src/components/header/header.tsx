@@ -2,8 +2,9 @@ import { NavLink } from 'react-router-dom'
 import { routes } from '../../common/constants'
 import { IconLogo } from '../icons'
 import styles from './header.module.css'
+import type React from 'react'
 
-const Header = () => {
+const Header: React.FC = () => {
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `${styles.navLink} ${isActive && styles.active}`
 

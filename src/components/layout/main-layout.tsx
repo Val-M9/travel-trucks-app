@@ -1,7 +1,8 @@
-import type { ReactNode } from 'react'
+import type React from 'react'
+import type { LayoutProps } from './types'
 import { Header } from '../'
 
-const MainLayout = ({ children }: { children: ReactNode }) => {
+const MainLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Header />

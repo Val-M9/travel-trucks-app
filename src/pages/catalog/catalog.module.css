@@ -1,0 +1,16 @@
+.star {
+  fill: red;
+  color: red;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media only screen and (min-width: 1024px) {
+  .catalog {
+    grid-template-columns: 360px 1fr;
+    gap: 64px;
+  }
+}

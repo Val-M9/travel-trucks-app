@@ -1,7 +1,8 @@
-import type { ReactNode } from 'react'
+import type React from 'react'
+import type { ContainerProps } from './types'
 import styles from './container.module.css'
 
-const Container = ({ children }: { children: ReactNode }) => {
+const Container: React.FC<ContainerProps> = ({ children }) => {
   return <div className={styles.container}>{children}</div>
 }
 

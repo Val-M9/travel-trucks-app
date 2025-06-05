@@ -1,0 +1,112 @@
+.card {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  height: 368px;
+  max-width: 888px;
+  border: 1px solid var(--cl-gray-100);
+  border-radius: var(--radius-md);
+}
+
+.image {
+  width: 292px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  line-clamp: 1;
+  overflow: hidden;
+}
+
+.price {
+  white-space: nowrap;
+}
+
+.title,
+.price {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-600);
+  line-height: var(--lh-3);
+}
+
+.title,
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  line-clamp: 1;
+  overflow: hidden;
+}
+
+.heartIcon {
+  width: 26px;
+  height: 24px;
+  margin-left: 12px;
+  padding-top: 3px;
+}
+
+.overview {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.starIcon {
+  padding-top: 3px;
+  margin-right: 4px;
+  color: var(--cl-yellow-200);
+}
+
+.reviews,
+.location,
+.description {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-400);
+  line-height: var(--lh-5);
+}
+
+.mapIcon {
+  padding-top: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+.description {
+  margin-top: 24px;
+  padding-right: 25px;
+  color: var(--cl-gray-500);
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 24px;
+  margin-bottom: auto;
+  padding-right: 100px;
+}
+
+.btn {
+  padding: 16px 40px;
+  width: 166px;
+  align-self: flex-start;
+}
