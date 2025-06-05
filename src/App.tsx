@@ -1,18 +1,26 @@
-import { lazy } from 'react'
+import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { routes } from './common/constants'
-import { MainLayout } from './components'
+import { Loader, MainLayout } from './components'
 import './styles/reset.css'
 import './styles/global.css'
+import { useSelector } from 'react-redux'
+import { selectIsLoading } from './store/trucksSlice'
 
-const Home = lazy(() => import('./pages/home/home'))
+const HomePage = lazy(() => import('./pages/home/home'))
+const CatalogPage = lazy(() => import('./pages/catalog/catalog'))
 
 function App() {
+  const isLoading = useSelector(selectIsLoading)
+
   return (
     <MainLayout>
-      <Routes>
-        <Route path={routes.HOME} element={<Home />} />
-      </Routes>
+      <Suspense fallback={<Loader isLoading={isLoading} />}>
+        <Routes>
+          <Route path={routes.HOME} element={<HomePage />} />
+          <Route path={routes.CATALOG} element={<CatalogPage />} />
+        </Routes>
+      </Suspense>
     </MainLayout>
   )
 }
