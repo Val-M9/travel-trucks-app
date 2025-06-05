@@ -7,7 +7,7 @@ import {
 } from '../../store/trucksSlice'
 import { fetchAllTrucks } from '../../store/trucksActions'
 import { useAppDispatch } from '../../store/store'
-import { Container, Loader, TrucksList } from '../../components'
+import { Container, Filters, Loader, TrucksList } from '../../components'
 import styles from './catalog.module.css'
 
 const CatalogPage = () => {
@@ -19,8 +19,6 @@ const CatalogPage = () => {
   useEffect(() => {
     dispatch(fetchAllTrucks())
   }, [dispatch])
-
-  console.log(trucks)
 
   if (isLoading) {
     return (
@@ -37,7 +35,7 @@ const CatalogPage = () => {
   return (
     <Container>
       <div className={styles.catalog}>
-        <aside>Filters</aside>
+        <Filters />
         <main>
           <TrucksList trucks={trucks} />
         </main>

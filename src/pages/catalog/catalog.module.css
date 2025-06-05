@@ -1,8 +1,3 @@
-.star {
-  fill: red;
-  color: red;
-}
-
 .catalog {
   display: grid;
   grid-template-columns: 1fr;
