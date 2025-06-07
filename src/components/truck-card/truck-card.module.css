@@ -28,14 +28,6 @@
   width: 100%;
 }
 
-.title {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  line-clamp: 1;
-  overflow: hidden;
-}
-
 .price {
   white-space: nowrap;
 }
@@ -60,7 +52,7 @@
   width: 26px;
   height: 24px;
   margin-left: 12px;
-  padding-top: 3px;
+  transform: translateY(2px);
 }
 
 .overview {
@@ -71,9 +63,9 @@
 }
 
 .starIcon {
-  padding-top: 3px;
   margin-right: 4px;
   color: var(--cl-yellow-200);
+  transform: translateY(2px);
 }
 
 .reviews,
@@ -85,9 +77,10 @@
 }
 
 .mapIcon {
-  padding-top: 3px;
+  margin-right: 4px;
   width: 16px;
   height: 16px;
+  transform: translateY(2px);
 }
 
 .description {

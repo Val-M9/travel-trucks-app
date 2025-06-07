@@ -1,10 +1,14 @@
 import type React from 'react'
+import { Link } from 'react-router-dom'
 import type { TruckDto } from '../../common/types'
+import { routes } from '../../common/constants'
+import { formatLocation, formatPrice } from '../../helpers'
 import { IconHeart, IconStar, IconMap } from '../icons'
 import { Button, TruckFeatures } from '../'
 import styles from './truck-card.module.css'
 
 const TruckCard: React.FC<TruckDto> = ({
+  id,
   name,
   price,
   gallery,
@@ -48,12 +52,12 @@ const TruckCard: React.FC<TruckDto> = ({
 
   return (
     <div className={styles.card}>
-      <img className={styles.image} src={gallery[1].original} />
+      <img className={styles.image} src={gallery[0].thumb} alt={name} />
       <div className={styles.content}>
         <div className={styles.heading}>
           <h2 className={styles.title}>{name}</h2>
           <p className={styles.price}>
-            €{price.toFixed(2)}
+            €{formatPrice(price)}
             <IconHeart className={styles.heartIcon} />
           </p>
         </div>
@@ -65,7 +69,7 @@ const TruckCard: React.FC<TruckDto> = ({
           </div>
           <div>
             <IconMap className={styles.mapIcon} />
-            <span className={styles.location}>{location}</span>
+            <span className={styles.location}>{formatLocation(location)}</span>
           </div>
         </div>
         <div className={styles.description}>{description}</div>
@@ -74,7 +78,9 @@ const TruckCard: React.FC<TruckDto> = ({
             <TruckFeatures key={index} feature={feature} />
           ))}
         </div>
-        <Button className={styles.btn}>Show more</Button>
+        <Link to={`${routes.CATALOG}/${id}`}>
+          <Button className={styles.btn}>Show more</Button>
+        </Link>
       </div>
     </div>
   )

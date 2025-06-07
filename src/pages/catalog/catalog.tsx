@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import {
   selectAllTrucks,
@@ -6,14 +5,14 @@ import {
   selectIsLoading,
 } from '../../store/trucksSlice'
 import { fetchAllTrucks } from '../../store/trucksActions'
-import { useAppDispatch } from '../../store/store'
+import { useAppDispatch, useAppSelector } from '../../store/store'
 import { Container, Filters, Loader, TrucksList } from '../../components'
 import styles from './catalog.module.css'
 
 const CatalogPage = () => {
-  const trucks = useSelector(selectAllTrucks)
-  const isLoading = useSelector(selectIsLoading)
-  const error = useSelector(selectError)
+  const trucks = useAppSelector(selectAllTrucks)
+  const isLoading = useAppSelector(selectIsLoading)
+  const error = useAppSelector(selectError)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -21,11 +20,7 @@ const CatalogPage = () => {
   }, [dispatch])
 
   if (isLoading) {
-    return (
-      <Container>
-        <Loader isLoading={isLoading} />
-      </Container>
-    )
+    return <Loader isLoading={isLoading} />
   }
 
   if (error) {

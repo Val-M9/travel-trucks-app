@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { AllTrucksDto } from '../common/types'
+import type { AllTrucksDto, TruckDto } from '../common/types'
 import { fetchAllTrucks } from './trucksActions'
 import type { RootState } from './store'
 
@@ -49,4 +49,11 @@ export const selectIsLoading = (state: RootState): boolean => {
 
 export const selectError = (state: RootState): string | null => {
   return state.trucks.error
+}
+
+export const selectTruckById = (
+  state: RootState,
+  truckId: TruckDto['id']
+): TruckDto | undefined => {
+  return state.trucks.trucks.items.find((truck) => truck.id === truckId)
 }
