@@ -1,9 +1,7 @@
 .sectionTitle {
   margin-top: 40px;
   color: var(--cl-gray-500);
-  font-size: var(--fs-16);
   font-weight: var(--fw-500);
-  line-height: var(--lh-5);
 }
 
 .btn {

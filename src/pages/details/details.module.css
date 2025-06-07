@@ -25,14 +25,6 @@
   transform: translateY(2px);
 }
 
-.reviews,
-.location,
-.description {
-  font-size: var(--fs-16);
-  font-weight: var(--fw-400);
-  line-height: var(--lh-5);
-}
-
 .price {
   margin-top: 16px;
 }

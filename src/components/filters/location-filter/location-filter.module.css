@@ -1,7 +1,5 @@
 .filter {
   color: var(--cl-gray-400);
-  font-weight: var(--lw-400);
-  line-height: var(--lh-5);
 }
 
 .inputWrapper {
@@ -22,8 +20,6 @@
   width: 100%;
   padding: 18px 18px 18px 48px;
   border-radius: var(--radius-sm);
-  font-size: var(--fs-16);
-  line-height: var(--lh-5);
   background-color: var(--cl-gray-20);
   transition: var(--trns-ease);
 }

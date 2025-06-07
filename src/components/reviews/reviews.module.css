@@ -1,0 +1,54 @@
+.wrapper {
+  margin-top: 12px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+}
+
+.review:not(:last-child) {
+  margin-bottom: 44px;
+}
+
+.overview {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  padding-top: 13px;
+  text-align: center;
+  font-size: var(--fs-24);
+  font-weight: var(--fw-600);
+  color: var(--cl-red-300);
+  background-color: var(--cl-gray-50);
+  border-radius: var(--radius-circle);
+}
+
+.name {
+  font-weight: var(--fw-500);
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.star {
+  color: var(--cl-gray-50);
+}
+
+.star.active {
+  color: var(--cl-yellow-200);
+}
+
+.comment {
+  margin-top: 16px;
+  color: var(--cl-gray-500);
+}

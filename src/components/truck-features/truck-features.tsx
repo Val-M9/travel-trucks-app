@@ -52,7 +52,7 @@ const TruckDetails: React.FC = () => {
       </ul>
       <h2 className={styles.detailsTitle}>Vehicle details</h2>
       {detailsList.map((detail) => (
-        <div className={styles.detail}>
+        <div key={detail.title} className={styles.detail}>
           <p>{detail.title}</p>
           <p>{detail.value}</p>
         </div>
