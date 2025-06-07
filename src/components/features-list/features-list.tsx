@@ -12,7 +12,7 @@ import {
   IconStove,
   IconTV,
   IconWater,
-} from '../icons'
+} from '../'
 import styles from './features-list.module.css'
 
 const FeaturesList: React.FC<FeaturesListProps> = ({ feature }) => {

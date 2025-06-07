@@ -1,8 +1,8 @@
 import React from 'react'
 import TruckCard from '../truck-card/truck-card'
 import type { AllTrucksDto } from '../../common/types'
+import { Button } from '../'
 import styles from './trucks-list.module.css'
-import Button from '../button/button'
 
 interface TrucksListProps {
   trucks: AllTrucksDto

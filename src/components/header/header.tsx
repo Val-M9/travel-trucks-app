@@ -1,8 +1,8 @@
+import type React from 'react'
 import { NavLink } from 'react-router-dom'
 import { routes } from '../../common/constants'
-import { IconLogo } from '../icons'
+import { IconLogo } from '../'
 import styles from './header.module.css'
-import type React from 'react'
 
 const Header: React.FC = () => {
   const linkClass = ({ isActive }: { isActive: boolean }) =>

@@ -11,8 +11,7 @@ import { useAppSelector } from '../../store/store'
 import { selectError, selectTruckById } from '../../store/trucksSlice'
 import { routes } from '../../common/constants'
 import { formatLocation, formatPrice } from '../../helpers'
-import { Container } from '../../components'
-import { IconMap, IconStar } from '../../components/icons'
+import { IconMap, IconStar, Container } from '../../components/'
 import styles from './details.module.css'
 
 const Details: React.FC = () => {

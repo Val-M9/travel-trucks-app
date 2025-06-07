@@ -11,7 +11,7 @@ import {
   IconStove,
   IconTV,
   IconWater,
-} from '../../icons'
+} from '../../'
 import type { EquipmentOptions } from './types'
 import sharedStyles from '../shared-filters.module.css'
 

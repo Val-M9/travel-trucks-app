@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useAppSelector } from '../../store/store'
 import { formatTruckDetail, formatTruckForm } from '../../helpers'
 import { selectTruckById } from '../../store/trucksSlice'
-import FeaturesList from '../features-list/features-list'
+import { FeaturesList } from '../'
 import styles from './truck-features.module.css'
 
 const TruckDetails: React.FC = () => {
@@ -33,10 +33,7 @@ const TruckDetails: React.FC = () => {
   ]
 
   const detailsList = [
-    {
-      title: 'Form',
-      value: formatTruckForm(truck.form),
-    },
+    { title: 'Form', value: formatTruckForm(truck.form) },
     { title: 'Length', value: formatTruckDetail(truck.length) },
     { title: 'Width', value: formatTruckDetail(truck.width) },
     { title: 'Height', value: formatTruckDetail(truck.height) },

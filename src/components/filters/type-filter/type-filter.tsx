@@ -1,6 +1,6 @@
 import type React from 'react'
 import type { TypeOptions } from './types'
-import { IconCubeGrid, IconGrid, IconQuadGrid } from '../../icons'
+import { IconCubeGrid, IconGrid, IconQuadGrid } from '../../'
 import sharedStyles from '../shared-filters.module.css'
 
 const typeOptions: TypeOptions[] = [

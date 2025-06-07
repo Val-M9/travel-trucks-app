@@ -1,6 +1,6 @@
 import type React from 'react'
+import { IconMap } from '../../'
 import styles from './location-filter.module.css'
-import { IconMap } from '../../icons'
 
 const SearchLocation: React.FC = () => {
   return (

@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import type { TruckDto } from '../../common/types'
 import { routes } from '../../common/constants'
 import { formatLocation, formatPrice } from '../../helpers'
-import { IconHeart, IconStar, IconMap } from '../icons'
-import { Button, FeaturesList } from '../'
+import { IconHeart, IconStar, IconMap, Button, FeaturesList } from '../'
 import styles from './truck-card.module.css'
 
 const TruckCard: React.FC<TruckDto> = ({
