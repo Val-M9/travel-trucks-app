@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom'
 import { Button } from '../../components'
 import styles from './home.module.css'
+import { routes } from '../../common/constants'
 
 const HomePage = () => {
   return (
@@ -9,7 +11,9 @@ const HomePage = () => {
         <p className={styles.description}>
           You can find everything you want in our catalog
         </p>
-        <Button className={styles.btn}>View Now</Button>
+        <Link to={routes.CATALOG}>
+          <Button className={styles.btn}>View Now</Button>
+        </Link>
       </div>
     </section>
   )

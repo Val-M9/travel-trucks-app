@@ -77,7 +77,10 @@ const TruckCard: React.FC<TruckDto> = ({
             <FeaturesList key={feature.type} feature={feature} />
           ))}
         </div>
-        <Link to={`${routes.CATALOG}/${id}`}>
+        <Link
+          to={`${routes.CATALOG}/${id}`}
+          target="_blank"
+          rel="noopener noreferrer">
           <Button className={styles.btn}>Show more</Button>
         </Link>
       </div>
