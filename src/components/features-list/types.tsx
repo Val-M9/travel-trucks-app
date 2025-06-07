@@ -11,6 +11,6 @@ export type FeatureType =
   | { type: 'gas'; value: boolean }
   | { type: 'water'; value: boolean }
 
-export interface TruckFeaturesProps {
+export interface FeaturesListProps {
   feature: FeatureType
 }

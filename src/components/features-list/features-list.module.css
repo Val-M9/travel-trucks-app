@@ -1,0 +1,19 @@
+.feature {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  gap: 8px;
+  border-radius: 100px;
+  background: var(--cl-gray-50);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.feature span {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-500);
+  line-height: var(--lh-5);
+}

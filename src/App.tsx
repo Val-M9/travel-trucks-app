@@ -25,6 +25,7 @@ function App() {
           <Route path={routes.HOME} element={<HomePage />} />
           <Route path={routes.CATALOG} element={<CatalogPage />} />
           <Route path={`${routes.CATALOG}/:id`} element={<DetailsPage />}>
+            <Route index element={<TruckFeatures />} />
             <Route path={routes.FEATURES} element={<TruckFeatures />} />
             <Route path={routes.REVIEWS} element={<Reviews />} />
           </Route>

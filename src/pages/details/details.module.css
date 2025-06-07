@@ -94,3 +94,13 @@
 .link.active::after {
   width: 100%;
 }
+
+.additional {
+  display: flex;
+  column-gap: 40px;
+}
+
+.additional > * {
+  flex: 1;
+  min-width: 0;
+}

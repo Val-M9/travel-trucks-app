@@ -1,26 +1,35 @@
 import type React from 'react'
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom'
-import { useAppSelector } from '../../store/store'
+import { useEffect } from 'react'
 import {
-  selectError,
-  selectIsLoading,
-  selectTruckById,
-} from '../../store/trucksSlice'
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from 'react-router-dom'
+import { useAppSelector } from '../../store/store'
+import { selectError, selectTruckById } from '../../store/trucksSlice'
+import { routes } from '../../common/constants'
 import { formatLocation, formatPrice } from '../../helpers'
-import { Container, Loader } from '../../components'
+import { Container } from '../../components'
 import { IconMap, IconStar } from '../../components/icons'
 import styles from './details.module.css'
-import { routes } from '../../common/constants'
 
 const Details: React.FC = () => {
   const { id } = useParams<{ id: string }>()
-  const location = useLocation()
   const truck = useAppSelector((state) => id && selectTruckById(state, id))
-  const isLoading = useAppSelector(selectIsLoading)
   const error = useAppSelector(selectError)
+  const navigate = useNavigate()
+  const location = useLocation()
 
-  if (isLoading) {
-    return <Loader isLoading={isLoading} />
+  useEffect(() => {
+    if (location.pathname.match(/\/catalog\/\d+$/)) {
+      navigate(`${location.pathname}/${routes.FEATURES}`, { replace: true })
+    }
+  }, [location.pathname, navigate])
+
+  const linkClass = ({ isActive }: { isActive: boolean }) => {
+    return `${styles.link} ${isActive ? styles.active : ''}`
   }
 
   if (error) {
@@ -49,25 +58,28 @@ const Details: React.FC = () => {
           <div className={styles.price}>€{formatPrice(truck.price)}</div>
           <div className={styles.imagesBlock}>
             {truck.gallery.map((obj) => (
-              <img className={styles.image} src={obj.thumb} alt={truck.name} />
+              <img
+                key={obj.thumb}
+                className={styles.image}
+                src={obj.thumb}
+                alt={truck.name}
+              />
             ))}
           </div>
           <div className={styles.description}>{truck.description}</div>
           <div>
             <div className={styles.links}>
-              <Link
-                className={`${styles.link} ${location.pathname.includes(routes.FEATURES) ? styles.active : ''}`}
-                to={routes.FEATURES}>
+              <NavLink className={linkClass} to={routes.FEATURES}>
                 Features
-              </Link>
-              <Link
-                className={`${styles.link} ${location.pathname.includes(routes.REVIEWS) ? styles.active : ''}`}
-                to={routes.REVIEWS}>
+              </NavLink>
+              <NavLink className={linkClass} to={routes.REVIEWS}>
                 Reviews
-              </Link>
+              </NavLink>
             </div>
-            <Outlet />
-            <form></form>
+            <div className={styles.additional}>
+              <Outlet />
+              <form></form>
+            </div>
           </div>
         </main>
       )}

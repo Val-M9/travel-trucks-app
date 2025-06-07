@@ -4,7 +4,7 @@ import type { TruckDto } from '../../common/types'
 import { routes } from '../../common/constants'
 import { formatLocation, formatPrice } from '../../helpers'
 import { IconHeart, IconStar, IconMap } from '../icons'
-import { Button, TruckFeatures } from '../'
+import { Button, FeaturesList } from '../'
 import styles from './truck-card.module.css'
 
 const TruckCard: React.FC<TruckDto> = ({
@@ -74,8 +74,8 @@ const TruckCard: React.FC<TruckDto> = ({
         </div>
         <div className={styles.description}>{description}</div>
         <div className={styles.features}>
-          {featuresList.map((feature, index) => (
-            <TruckFeatures key={index} feature={feature} />
+          {featuresList.map((feature) => (
+            <FeaturesList key={feature.type} feature={feature} />
           ))}
         </div>
         <Link to={`${routes.CATALOG}/${id}`}>
