@@ -11,8 +11,13 @@ class TrucksService {
     })
   }
 
-  async getAll(): Promise<AllTrucksDto> {
-    const { data } = await this.#api.get<AllTrucksDto>('campers')
+  async getAll(page: number = 1, limit: number = 10): Promise<AllTrucksDto> {
+    const { data } = await this.#api.get<AllTrucksDto>('campers', {
+      params: {
+        page,
+        limit,
+      },
+    })
     return data
   }
 }

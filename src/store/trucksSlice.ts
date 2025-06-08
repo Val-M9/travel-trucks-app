@@ -7,28 +7,42 @@ interface TrucksState {
   trucks: AllTrucksDto
   isLoading: boolean
   error: null | string
+  currentPage: number
+  hasMore: boolean
 }
 
 const initialState: TrucksState = {
   trucks: { items: [], total: 0 },
   isLoading: false,
   error: null,
+  currentPage: 1,
+  hasMore: true,
 }
 
 const trucksSlice = createSlice({
   name: 'trucks',
   initialState,
   reducers: {
-    // Need empty reducers for types to work properly
+    resetTrucks: (state) => {
+      state.trucks = { items: [], total: 0 }
+      state.currentPage = 1
+      state.hasMore = true
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAllTrucks.pending, (state) => {
         state.isLoading = true
+        state.error = null
       })
       .addCase(fetchAllTrucks.fulfilled, (state, { payload }) => {
         state.isLoading = false
-        state.trucks = payload
+
+        state.trucks.items = [...state.trucks.items, ...payload.items]
+        state.trucks.total = payload.total
+        state.currentPage = state.currentPage + 1
+
+        state.hasMore = state.trucks.items.length < payload.total
       })
       .addCase(fetchAllTrucks.rejected, (state, { payload }) => {
         state.isLoading = false
@@ -49,6 +63,14 @@ export const selectIsLoading = (state: RootState): boolean => {
 
 export const selectError = (state: RootState): string | null => {
   return state.trucks.error
+}
+
+export const selectCurrentPage = (state: RootState): number => {
+  return state.trucks.currentPage
+}
+
+export const selectHasMore = (state: RootState): boolean => {
+  return state.trucks.hasMore
 }
 
 export const selectTruckById = (
