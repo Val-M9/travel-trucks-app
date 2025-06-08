@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { Toaster } from 'react-hot-toast'
 import { routes } from './common/constants'
 import { selectIsLoading } from './store/trucksSlice'
 import { useAppSelector } from './store/store'
@@ -31,6 +32,7 @@ function App() {
           </Route>
         </Routes>
       </Suspense>
+      <Toaster />
     </MainLayout>
   )
 }

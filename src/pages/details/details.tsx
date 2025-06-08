@@ -11,7 +11,7 @@ import { useAppSelector } from '../../store/store'
 import { selectError, selectTruckById } from '../../store/trucksSlice'
 import { routes } from '../../common/constants'
 import { formatLocation, formatPrice } from '../../helpers'
-import { IconMap, IconStar, Container } from '../../components/'
+import { IconMap, IconStar, Container, BookForm } from '../../components/'
 import styles from './details.module.css'
 
 const Details: React.FC = () => {
@@ -77,7 +77,7 @@ const Details: React.FC = () => {
             </div>
             <div className={styles.additional}>
               <Outlet />
-              <form></form>
+              <BookForm />
             </div>
           </div>
         </main>

@@ -14,6 +14,7 @@
   --cl-white: #ffffff;
 
   /* Font sizes */
+  --fs-12: 12px;
   --fs-14: 14px;
   --fs-16: 16px;
   --fs-20: 20px;
@@ -57,11 +58,4 @@ body {
   color: var(--cl-blue-900);
   max-width: 1440px;
   margin: 0 auto;
-}
-
-input,
-button {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
 }
