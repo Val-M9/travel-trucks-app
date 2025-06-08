@@ -1,7 +1,7 @@
 import type React from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppSelector } from '../../store/store'
-import { selectError, selectTruckById } from '../../store/trucksSlice'
+import { selectError, selectTruckById } from '../../store/selectors'
 import { Container, IconStar } from '../'
 import styles from './reviews.module.css'
 

@@ -2,7 +2,7 @@ import type React from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppSelector } from '../../store/store'
 import { formatTruckDetail, formatTruckForm } from '../../helpers'
-import { selectTruckById } from '../../store/trucksSlice'
+import { selectTruckById } from '../../store/selectors'
 import { FeaturesList } from '../'
 import styles from './truck-features.module.css'
 

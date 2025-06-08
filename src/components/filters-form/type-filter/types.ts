@@ -5,3 +5,8 @@ export type TypeOptions = {
   label: string
   Icon: React.FC<IconProps>
 }
+
+export interface TypeFilterProps {
+  value: string
+  onChange: (value: string) => void
+}

@@ -1,33 +1,37 @@
 import { useEffect } from 'react'
 import {
-  selectAllTrucks,
   selectError,
   selectIsLoading,
   selectHasMore,
-} from '../../store/trucksSlice'
+  selectFilteredTrucks,
+} from '../../store/selectors'
 import { fetchAllTrucks } from '../../store/trucksActions'
 import { useAppDispatch, useAppSelector } from '../../store/store'
 import {
   Button,
   Container,
-  Filters,
+  FiltersForm,
   Loader,
   TrucksList,
 } from '../../components'
 import styles from './catalog.module.css'
+import { incrementPage } from '../../store/trucksSlice'
 
 const CatalogPage = () => {
-  const trucks = useAppSelector(selectAllTrucks)
+  const trucks = useAppSelector(selectFilteredTrucks)
   const isLoading = useAppSelector(selectIsLoading)
   const error = useAppSelector(selectError)
   const hasMore = useAppSelector(selectHasMore)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchAllTrucks())
-  }, [dispatch])
+    if (trucks.items.length === 0) {
+      dispatch(fetchAllTrucks())
+    }
+  }, [dispatch, trucks.items.length])
 
   const handleLoadMore = () => {
+    dispatch(incrementPage())
     dispatch(fetchAllTrucks())
   }
 
@@ -42,9 +46,9 @@ const CatalogPage = () => {
   return (
     <Container>
       <div className={styles.catalog}>
-        <Filters />
+        <FiltersForm />
         <section className={styles.trucksList}>
-          <TrucksList trucks={trucks} />
+          <TrucksList trucks={trucks.items} />
           {hasMore && (
             <Button
               variant="outlined"

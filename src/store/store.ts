@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage'
 import { useDispatch, useSelector } from 'react-redux'
 import { trucksReducer } from './trucksSlice'
+import { filtersReducer } from './filtersSlice'
 
 const persistTrucksConfig = {
   key: 'trucks',
@@ -25,6 +26,7 @@ const persistedTrucksReducer = persistReducer(
 
 const rootReducer = {
   trucks: persistedTrucksReducer,
+  filters: filtersReducer,
 }
 
 export const store = configureStore({

@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { AllTrucksDto, TruckDto } from '../common/types'
+import type { AllTrucksDto } from '../common/types'
 import { fetchAllTrucks } from './trucksActions'
-import type { RootState } from './store'
 
 interface TrucksState {
   trucks: AllTrucksDto
@@ -23,10 +22,8 @@ const trucksSlice = createSlice({
   name: 'trucks',
   initialState,
   reducers: {
-    resetTrucks: (state) => {
-      state.trucks = { items: [], total: 0 }
-      state.currentPage = 1
-      state.hasMore = true
+    incrementPage: (state) => {
+      state.currentPage += 1
     },
   },
   extraReducers: (builder) => {
@@ -40,7 +37,6 @@ const trucksSlice = createSlice({
 
         state.trucks.items = [...state.trucks.items, ...payload.items]
         state.trucks.total = payload.total
-        state.currentPage = state.currentPage + 1
 
         state.hasMore = state.trucks.items.length < payload.total
       })
@@ -52,30 +48,4 @@ const trucksSlice = createSlice({
 })
 
 export const trucksReducer = trucksSlice.reducer
-
-export const selectAllTrucks = (state: RootState): AllTrucksDto => {
-  return state.trucks.trucks
-}
-
-export const selectIsLoading = (state: RootState): boolean => {
-  return state.trucks.isLoading
-}
-
-export const selectError = (state: RootState): string | null => {
-  return state.trucks.error
-}
-
-export const selectCurrentPage = (state: RootState): number => {
-  return state.trucks.currentPage
-}
-
-export const selectHasMore = (state: RootState): boolean => {
-  return state.trucks.hasMore
-}
-
-export const selectTruckById = (
-  state: RootState,
-  truckId: TruckDto['id']
-): TruckDto | undefined => {
-  return state.trucks.trucks.items.find((truck) => truck.id === truckId)
-}
+export const { incrementPage } = trucksSlice.actions

@@ -8,7 +8,7 @@ import {
   useParams,
 } from 'react-router-dom'
 import { useAppSelector } from '../../store/store'
-import { selectError, selectTruckById } from '../../store/trucksSlice'
+import { selectError, selectTruckById } from '../../store/selectors'
 import { routes } from '../../common/constants'
 import { formatLocation, formatPrice } from '../../helpers'
 import { IconMap, IconStar, Container, BookForm } from '../../components/'

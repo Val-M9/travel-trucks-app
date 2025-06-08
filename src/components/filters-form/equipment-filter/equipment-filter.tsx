@@ -12,7 +12,7 @@ import {
   IconTV,
   IconWater,
 } from '../../icons'
-import type { EquipmentOptions } from './types'
+import type { EquipmentFilterProps, EquipmentOptions } from './types'
 import sharedStyles from '../shared-filters.module.css'
 
 const equipmentOptions: EquipmentOptions[] = [
@@ -32,18 +32,30 @@ const equipmentOptions: EquipmentOptions[] = [
   { title: 'radio', label: 'Radio', Icon: IconRadio },
 ]
 
-const EquipmentFilter: React.FC = () => {
+const EquipmentFilter: React.FC<EquipmentFilterProps> = ({
+  value,
+  onChange,
+}) => {
+  const handleCheckboxChange = (title: string) => {
+    const newValue = value.includes(title)
+      ? value.filter((item) => item !== title)
+      : [...value, title]
+    onChange(newValue)
+  }
+
   return (
     <div className={sharedStyles.filter}>
       <h2 className={sharedStyles.title}>Vehicle equipment</h2>
       <ul className={sharedStyles.list}>
         {equipmentOptions.map(({ title, label, Icon }) => (
-          <li key={title} className={sharedStyles.item}>
+          <li key={label} className={sharedStyles.item}>
             <label className={sharedStyles.label}>
               <input
                 type="checkbox"
                 name={title}
                 className={sharedStyles.checkbox}
+                checked={value.includes(title)}
+                onChange={() => handleCheckboxChange(title)}
               />
               <div className={sharedStyles.box}>
                 <Icon className={sharedStyles.icon} />

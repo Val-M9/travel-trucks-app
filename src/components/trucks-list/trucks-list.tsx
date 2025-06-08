@@ -1,17 +1,17 @@
 import React from 'react'
 import TruckCard from '../truck-card/truck-card'
-import type { AllTrucksDto } from '../../common/types'
+import type { TruckDto } from '../../common/types'
 import styles from './trucks-list.module.css'
 
 interface TrucksListProps {
-  trucks: AllTrucksDto
+  trucks: TruckDto[]
 }
 
 const TrucksList: React.FC<TrucksListProps> = ({ trucks }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.list}>
-        {trucks.items.map((truck) => (
+        {trucks.map((truck) => (
           <TruckCard key={truck.id} {...truck} />
         ))}
       </div>

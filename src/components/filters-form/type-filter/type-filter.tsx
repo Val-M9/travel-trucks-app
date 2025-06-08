@@ -1,5 +1,5 @@
 import type React from 'react'
-import type { TypeOptions } from './types'
+import type { TypeOptions, TypeFilterProps } from './types'
 import { IconCubeGrid, IconGrid, IconQuadGrid } from '../../'
 import sharedStyles from '../shared-filters.module.css'
 
@@ -9,7 +9,7 @@ const typeOptions: TypeOptions[] = [
   { title: 'alcove', label: 'Alcove', Icon: IconCubeGrid },
 ]
 
-const TypeFilter: React.FC = () => {
+const TypeFilter: React.FC<TypeFilterProps> = ({ value, onChange }) => {
   return (
     <div className={sharedStyles.filter}>
       <h2 className={sharedStyles.title}>Vehicle type</h2>
@@ -22,6 +22,8 @@ const TypeFilter: React.FC = () => {
                 name="type"
                 value={title}
                 className={sharedStyles.radio}
+                checked={value === title}
+                onChange={(e) => onChange(e.target.value)}
               />
               <div className={sharedStyles.box}>
                 <Icon className={sharedStyles.icon} />
