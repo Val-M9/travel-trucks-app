@@ -12,7 +12,7 @@ const TrucksList: React.FC<TrucksListProps> = ({ trucks }) => {
     <div className={styles.wrapper}>
       <div className={styles.list}>
         {trucks.map((truck) => (
-          <TruckCard key={truck.id} {...truck} />
+          <TruckCard key={truck.id} truck={truck} />
         ))}
       </div>
     </div>

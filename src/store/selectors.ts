@@ -31,6 +31,9 @@ export const selectTruckById = (
   return state.trucks.trucks.items.find((truck) => truck.id === truckId)
 }
 
+export const selectFavorites = (state: RootState): TruckDto[] | undefined => {
+  return state.favorites.favorites
+}
 export const selectFilteredTrucks = createSelector(
   [selectAllTrucks, selectFilters],
   (trucks, filters) => {

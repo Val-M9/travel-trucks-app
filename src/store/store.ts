@@ -13,9 +13,15 @@ import storage from 'redux-persist/lib/storage'
 import { useDispatch, useSelector } from 'react-redux'
 import { trucksReducer } from './trucksSlice'
 import { filtersReducer } from './filtersSlice'
+import { favoritesReducer } from './favoritesSlice'
 
 const persistTrucksConfig = {
   key: 'trucks',
+  storage,
+}
+
+const persistFavoritesConfig = {
+  key: 'favorites',
   storage,
 }
 
@@ -24,9 +30,15 @@ const persistedTrucksReducer = persistReducer(
   trucksReducer
 )
 
+const persistedFavoritesReducer = persistReducer(
+  persistFavoritesConfig,
+  favoritesReducer
+)
+
 const rootReducer = {
   trucks: persistedTrucksReducer,
   filters: filtersReducer,
+  favorites: persistedFavoritesReducer,
 }
 
 export const store = configureStore({
