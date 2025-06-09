@@ -3,5 +3,8 @@
 
 ## Getting started
 
-Clone repo with git clone. Install dependencies using your favorite manager npm/pnpm/yarn.
-npm run dev to start a development server
+Clone the repo using `git clone`. Then install dependencies using your preferred package manager (npm, pnpm, or yarn).
+
+To start the development server, run:
+
+**npm run dev**
