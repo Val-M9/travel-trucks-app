@@ -16,10 +16,6 @@ export const selectError = (state: RootState): string | null => {
   return state.trucks.error
 }
 
-export const selectCurrentPage = (state: RootState): number => {
-  return state.trucks.currentPage
-}
-
 export const selectHasMore = (state: RootState): boolean => {
   return state.trucks.hasMore
 }

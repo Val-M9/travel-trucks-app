@@ -4,7 +4,6 @@ import {
   selectIsLoading,
   selectHasMore,
   selectFilteredTrucks,
-  selectCurrentPage,
 } from '../../store/selectors'
 import { fetchAllTrucks } from '../../store/trucksActions'
 import { useAppDispatch, useAppSelector } from '../../store/store'
@@ -24,7 +23,6 @@ const CatalogPage = () => {
   const error = useAppSelector(selectError)
   const hasMore = useAppSelector(selectHasMore)
   const dispatch = useAppDispatch()
-  const page = useAppSelector(selectCurrentPage)
 
   useEffect(() => {
     if (trucks.items.length === 0) {
@@ -34,8 +32,6 @@ const CatalogPage = () => {
 
   const handleLoadMore = () => {
     dispatch(incrementPage())
-    console.log(page)
-
     dispatch(fetchAllTrucks())
   }
 
@@ -52,15 +48,21 @@ const CatalogPage = () => {
       <div className={styles.catalog}>
         <FiltersForm />
         <section className={styles.trucksList}>
-          <TrucksList trucks={trucks.items} />
-          {hasMore && (
-            <Button
-              variant="outlined"
-              className={styles.btn}
-              onClick={handleLoadMore}
-              disabled={isLoading}>
-              {isLoading ? 'Loading...' : 'Load more'}
-            </Button>
+          {trucks.items.length === 0 ? (
+            <p>Sorry no trucks available for your filter params</p>
+          ) : (
+            <>
+              <TrucksList trucks={trucks.items} />
+              {hasMore && (
+                <Button
+                  variant="outlined"
+                  className={styles.btn}
+                  onClick={handleLoadMore}
+                  disabled={isLoading}>
+                  {isLoading ? 'Loading...' : 'Load more'}
+                </Button>
+              )}
+            </>
           )}
         </section>
       </div>
