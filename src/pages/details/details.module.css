@@ -92,7 +92,9 @@
   column-gap: 40px;
 }
 
-.additional > * {
+.outletArea,
+.formArea {
   flex: 1;
-  min-width: 0;
+  min-width: 400px;
+  max-width: 631px;
 }

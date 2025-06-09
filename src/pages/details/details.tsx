@@ -76,8 +76,12 @@ const Details: React.FC = () => {
               </NavLink>
             </div>
             <div className={styles.additional}>
-              <Outlet />
-              <BookForm />
+              <div className={styles.outletArea}>
+                <Outlet />
+              </div>
+              <div className={styles.formArea}>
+                <BookForm />
+              </div>
             </div>
           </div>
         </main>
