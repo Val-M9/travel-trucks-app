@@ -2,7 +2,7 @@ import type React from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppSelector } from '../../store/store'
 import { selectError, selectTruckById } from '../../store/selectors'
-import { Container, IconStar } from '../'
+import { IconStar } from '../'
 import styles from './reviews.module.css'
 
 const Reviews: React.FC = () => {
@@ -11,7 +11,7 @@ const Reviews: React.FC = () => {
   const error = useAppSelector(selectError)
 
   if (error) {
-    return <Container>{error}</Container>
+    return <p>{error}</p>
   }
   return (
     <ul className={styles.wrapper}>
@@ -20,7 +20,7 @@ const Reviews: React.FC = () => {
           <li key={review.reviewer_name} className={styles.review}>
             <div className={styles.overview}>
               <div className={styles.avatar}>
-                {review.reviewer_name.charAt(0).toLocaleUpperCase()}
+                {review.reviewer_name.charAt(0).toUpperCase()}
               </div>
               <div>
                 <h3 className={styles.name}>{review.reviewer_name}</h3>

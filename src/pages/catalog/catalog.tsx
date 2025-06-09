@@ -4,6 +4,7 @@ import {
   selectIsLoading,
   selectHasMore,
   selectFilteredTrucks,
+  selectCurrentPage,
 } from '../../store/selectors'
 import { fetchAllTrucks } from '../../store/trucksActions'
 import { useAppDispatch, useAppSelector } from '../../store/store'
@@ -23,6 +24,7 @@ const CatalogPage = () => {
   const error = useAppSelector(selectError)
   const hasMore = useAppSelector(selectHasMore)
   const dispatch = useAppDispatch()
+  const page = useAppSelector(selectCurrentPage)
 
   useEffect(() => {
     if (trucks.items.length === 0) {
@@ -32,6 +34,8 @@ const CatalogPage = () => {
 
   const handleLoadMore = () => {
     dispatch(incrementPage())
+    console.log(page)
+
     dispatch(fetchAllTrucks())
   }
 

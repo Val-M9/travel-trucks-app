@@ -35,8 +35,13 @@ const trucksSlice = createSlice({
       .addCase(fetchAllTrucks.fulfilled, (state, { payload }) => {
         state.isLoading = false
 
-        state.trucks.items = [...state.trucks.items, ...payload.items]
-        state.trucks.total = payload.total
+        if (state.currentPage === 1) {
+          state.trucks.items = payload.items
+          state.trucks.total = payload.total
+        } else {
+          state.trucks.items = [...state.trucks.items, ...payload.items]
+          state.trucks.total = payload.total
+        }
 
         state.hasMore = state.trucks.items.length < payload.total
       })

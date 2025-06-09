@@ -30,7 +30,6 @@ const DatePickerField: React.FC = () => {
       name="date"
       dateFormat="dd/MM/yyyy"
       minDate={new Date()}
-      formatWeekDay={(dayName) => dayName.slice(0, 3).toUpperCase()}
       className={formStyles.input}
       wrapperClassName={styles.wrapper}
       locale="custom"

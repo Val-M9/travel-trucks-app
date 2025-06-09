@@ -18,7 +18,7 @@ const initialValues: FormValues = {
 const validationSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, 'Name should be 3 characters at least')
-    .max(15, 'Should be 15 characters or less')
+    .max(50, 'Should be 50 characters or less')
     .required('Required'),
   email: Yup.string().email().required('Required'),
   date: Yup.date().required('Required'),
@@ -52,7 +52,7 @@ const BookForm: React.FC = () => {
               className={styles.input}
             />
             <ErrorMessage
-              name="email"
+              name="name"
               component="span"
               className={styles.error}
             />

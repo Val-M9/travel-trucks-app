@@ -23,7 +23,8 @@ const TypeFilter: React.FC<TypeFilterProps> = ({ value, onChange }) => {
                 value={title}
                 className={sharedStyles.radio}
                 checked={value === title}
-                onChange={(e) => onChange(e.target.value)}
+                onClick={() => onChange(value === title ? '' : title)}
+                readOnly
               />
               <div className={sharedStyles.box}>
                 <Icon className={sharedStyles.icon} />

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import type { ButtonProps } from './types'
 import styles from './button.module.css'
 
